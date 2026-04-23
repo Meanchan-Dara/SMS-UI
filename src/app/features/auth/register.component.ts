@@ -28,9 +28,9 @@ import { AuthService } from '../../core/services/auth.service';
 
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md z-10">
         <div class="bg-slate-900/60 backdrop-blur-xl py-8 px-4 shadow-2xl shadow-purple-500/10 sm:rounded-2xl sm:px-10 border border-white/5 border-t-white/10 relative group transition-all duration-500 hover:border-white/10">
-          
+
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-6">
-            
+
             <div>
               <label for="username" class="block text-sm font-medium text-slate-300">Username</label>
               <div class="mt-1 relative">
@@ -63,7 +63,7 @@ import { AuthService } from '../../core/services/auth.service';
                 </span>
               </button>
             </div>
-            
+
             <div *ngIf="errorMessage" class="mt-4 text-center p-3 bg-red-900/30 border border-red-500/50 rounded-lg">
               <p class="text-sm text-red-400">{{ errorMessage }}</p>
             </div>
@@ -89,7 +89,7 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
+    password: ['', [Validators.required, Validators.minLength(6)]]
   });
 
   onSubmit() {
